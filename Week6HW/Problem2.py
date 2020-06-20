@@ -4,7 +4,7 @@ data_set = [['I1', 'I2', 'I5'], ['I2', 'I4'], ['I2', 'I3'], ['I1', 'I2', 'I4'], 
 min_sup = 0.2
 min_con = 0.8
 
-
+# 获取频繁项集
 def get_fre_item_sets(data_set, min_sup):
     num_record = len(data_set)
     min_sup_num = min_sup * num_record
@@ -38,7 +38,7 @@ def get_fre_item_sets(data_set, min_sup):
             can_item_len += 1
     return fre_item_sets
 
-
+# 获取下一个频繁项集
 def get_next_fre_item_set(data_set, fre_item_set, can_item_len, min_sup_num):
     fre_items = list(fre_item_set.keys())
 
@@ -146,6 +146,5 @@ for i in fre_item_sets:
 
 association_rules = get_association_rules(fre_item_sets, min_con)
 
-print()
 for i in association_rules:
     print(i)
